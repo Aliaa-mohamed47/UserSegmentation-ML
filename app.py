@@ -60,7 +60,7 @@ st.markdown("---")
 st.sidebar.title("📊 Navigation")
 page = st.sidebar.radio(
     "Select Page:",
-    ["🏠 Home", "📈 Data Exploration", "🤖 Clustering Analysis", "🎯 Predictions", "ℹ️ About"]
+    [" Home", " Data Exploration", " Clustering Analysis", " Predictions", " About"]
 )
 
 st.sidebar.markdown("---")
@@ -95,8 +95,8 @@ kmeans_model, scaler = load_models()
 # =========================================
 # PAGE 1: HOME
 # =========================================
-if page == "🏠 Home":
-    st.header("🎯 Project Overview")
+if page == " Home":
+    st.header(" Project Overview")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -159,8 +159,8 @@ if page == "🏠 Home":
 # =========================================
 # PAGE 2: DATA EXPLORATION
 # =========================================
-elif page == "📈 Data Exploration":
-    st.header("📈 Exploratory Data Analysis")
+elif page == " Data Exploration":
+    st.header(" Exploratory Data Analysis")
     
     # Dataset Statistics
     st.subheader("📊 Dataset Statistics")
@@ -177,7 +177,7 @@ elif page == "📈 Data Exploration":
     st.markdown("---")
     
     # Distribution Plots
-    st.subheader("📊 Feature Distributions")
+    st.subheader(" Feature Distributions")
     
     col1, col2, col3 = st.columns(3)
     
@@ -211,7 +211,7 @@ elif page == "📈 Data Exploration":
     st.markdown("---")
     
     # Scatter Plot (Interactive)
-    st.subheader("🎨 Income vs Spending Score (Interactive)")
+    st.subheader(" Income vs Spending Score (Interactive)")
     
     fig = px.scatter(
         df, 
@@ -245,11 +245,11 @@ elif page == "📈 Data Exploration":
 # =========================================
 # PAGE 3: CLUSTERING ANALYSIS
 # =========================================
-elif page == "🤖 Clustering Analysis":
-    st.header("🤖 K-Means Clustering Analysis")
+elif page == " Clustering Analysis":
+    st.header(" K-Means Clustering Analysis")
     
     # Elbow Method
-    st.subheader("📐 Elbow Method - Finding Optimal K")
+    st.subheader(" Elbow Method - Finding Optimal K")
     
     if st.checkbox("Show Elbow Analysis"):
         with st.spinner("Calculating..."):
@@ -293,7 +293,7 @@ elif page == "🤖 Clustering Analysis":
     st.markdown("---")
     
     # Cluster Visualization
-    st.subheader("🎨 Cluster Visualization")
+    st.subheader(" Cluster Visualization")
     
     if kmeans_model is not None:
         features = ['Age', 'Annual Income (k$)', 'Spending Score (1-100)']
@@ -335,12 +335,12 @@ elif page == "🤖 Clustering Analysis":
         st.markdown("---")
         
         # Cluster Statistics
-        st.subheader("📊 Cluster Characteristics")
+        st.subheader(" Cluster Characteristics")
         cluster_stats = df.groupby('Cluster')[features].mean().round(2)
         st.dataframe(cluster_stats, use_container_width=True)
         
         # Cluster Distribution
-        st.subheader("📈 Cluster Distribution")
+        st.subheader(" Cluster Distribution")
         col1, col2 = st.columns([1, 2])
         
         with col1:
@@ -363,11 +363,11 @@ elif page == "🤖 Clustering Analysis":
         st.subheader("💡 Cluster Insights")
         
         interpretations = {
-            0: ("Budget Shoppers", "Young, Low Income, Low Spending", "🛒"),
-            1: ("Premium Customers (VIP)", "Middle-aged, High Income, High Spending", "💎"),
-            2: ("Conservative Spenders", "Young, High Income, Low Spending", "💰"),
-            3: ("Impulse Buyers", "Middle-aged, Low Income, High Spending", "🛍️"),
-            4: ("Practical Shoppers", "Older, Medium Income, Medium Spending", "🎯")
+            0: ("Budget Shoppers", "Young, Low Income, Low Spending", ""),
+            1: ("Premium Customers (VIP)", "Middle-aged, High Income, High Spending", ""),
+            2: ("Conservative Spenders", "Young, High Income, Low Spending", ""),
+            3: ("Impulse Buyers", "Middle-aged, Low Income, High Spending", ""),
+            4: ("Practical Shoppers", "Older, Medium Income, Medium Spending", "")
         }
         
         for cluster_id in sorted(df['Cluster'].unique()):
@@ -381,8 +381,8 @@ elif page == "🤖 Clustering Analysis":
 # =========================================
 # PAGE 4: PREDICTIONS
 # =========================================
-elif page == "🎯 Predictions":
-    st.header("🎯 Predict Customer Segment")
+elif page == " Predictions":
+    st.header(" Predict Customer Segment")
     
     st.write("Enter customer information to predict their segment:")
     
@@ -395,7 +395,7 @@ elif page == "🎯 Predictions":
     with col3:
         spending = st.slider("Spending Score (1-100)", 1, 100, 50)
     
-    if st.button("🔮 Predict Segment", type="primary"):
+    if st.button(" Predict Segment", type="primary"):
         if kmeans_model is not None and scaler is not None:
             # Prepare input
             input_data = np.array([[age, income, spending]])
@@ -405,7 +405,7 @@ elif page == "🎯 Predictions":
             cluster = kmeans_model.predict(input_scaled)[0]
             
             # Display result
-            st.success(f"### 🎯 Predicted Cluster: **{cluster}**")
+            st.success(f"###  Predicted Cluster: **{cluster}**")
             
             interpretations = {
                 0: ("Budget Shoppers", "Young, Low Income, Low Spending", "Focus on value and discounts"),
@@ -421,14 +421,13 @@ elif page == "🎯 Predictions":
                 **{title}**  
                 _{desc}_  
                 
-                **💡 Marketing Strategy:**  
+                ** Marketing Strategy:**  
                 {strategy}
                 """)
             
             # Visualize on scatter plot
-            st.subheader("📍 Customer Position on Map")
+            st.subheader(" Customer Position on Map")
             
-            # ✅ FIX: Create Cluster column if not exists
             if 'Cluster' not in df.columns:
                 features = ['Age', 'Annual Income (k$)', 'Spending Score (1-100)']
                 X = df[features].values
@@ -460,23 +459,24 @@ elif page == "🎯 Predictions":
         
         else:
             st.error("⚠️ Model not loaded. Please train the model first.")
+
 # =========================================
 # PAGE 5: ABOUT
 # =========================================
-elif page == "ℹ️ About":
-    st.header("ℹ️ About This Project")
+elif page == " About":
+    st.header(" About This Project")
     
     st.markdown("""
-    ### 🎯 Project Objective
+    ###  Project Objective
     This project demonstrates **Customer Segmentation** using **K-Means Clustering** algorithm.
     The goal is to segment mall customers into distinct groups based on their characteristics.
     
-    ### 📊 Dataset
+    ###  Dataset
     - **Source:** Mall Customers Dataset
     - **Size:** 200 customers
     - **Features:** CustomerID, Gender, Age, Annual Income, Spending Score
     
-    ### 🧠 Methodology
+    ###  Methodology
     1. **Data Exploration:** Analyze distributions and relationships
     2. **Data Preprocessing:** Standardize features for K-Means
     3. **Optimal K Selection:** Use Elbow Method and Silhouette Score
@@ -484,7 +484,7 @@ elif page == "ℹ️ About":
     5. **Visualization:** 2D and 3D cluster visualization
     6. **Interpretation:** Identify customer segments and strategies
     
-    ### 🛠️ Technologies Used
+    ###  Technologies Used
     - **Python** - Programming Language
     - **Pandas** - Data Manipulation
     - **Scikit-learn** - Machine Learning
@@ -492,12 +492,12 @@ elif page == "ℹ️ About":
     - **Plotly** - Interactive Visualization
     - **Streamlit** - Web Application
     
-    ### 📈 Key Results
+    ###  Key Results
     - **5 Customer Segments** identified
     - **Clear patterns** in spending behavior
     - **Actionable insights** for marketing strategies
     
-    ### 👨‍💻 Author
+    ###  Author
     **Aliaa Mohamed**  
     Data Science Enthusiast  
     February 2026
@@ -510,7 +510,7 @@ elif page == "ℹ️ About":
     
     st.markdown("---")
     
-    st.subheader("📚 References")
+    st.subheader(" References")
     st.markdown("""
     - [K-Means Clustering - Scikit-learn](https://scikit-learn.org/stable/modules/clustering.html#k-means)
     - [Streamlit Documentation](https://docs.streamlit.io/)
