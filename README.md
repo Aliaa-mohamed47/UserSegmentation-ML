@@ -1,30 +1,30 @@
-# 🛍️ Customer Segmentation with K-Means | Streamlit ML Dashboard
+#  Customer Segmentation with K-Means | Streamlit ML Dashboard
 
 Segmenting mall customers into 5 distinct groups using K-Means Clustering based on Age, Annual Income, and Spending Score.
 
 ---
 
-## 🎯 Project Overview
+##  Project Overview
 
 This project uses **K-Means Clustering** (Unsupervised Learning) to segment mall customers into 5 distinct groups:
 
-- 🛒 **Budget Shoppers** - Young, Low Income, Low Spending
-- 💎 **Premium Customers** - High Income, High Spending (VIP)
-- 💰 **Conservative Spenders** - High Income, Low Spending (Savers)
-- 🛍️ **Impulse Buyers** - Low Income, High Spending
-- 🎯 **Practical Shoppers** - Medium Income, Medium Spending
+-  **Budget Shoppers** - Young, Low Income, Low Spending
+-  **Premium Customers** - High Income, High Spending (VIP)
+-  **Conservative Spenders** - High Income, Low Spending (Savers)
+-  **Impulse Buyers** - Low Income, High Spending
+-  **Practical Shoppers** - Medium Income, Medium Spending
 
 **Goal:** Help businesses create personalized marketing strategies for each customer segment.
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 👉 [Try the App](https://usersegmentation-ml-kungvvcnlpukae7eaz59uq.streamlit.app/)
 
 ---
 
-## 📦 Technologies Used
+##  Technologies Used
 
 - **Python 3.10**
 - **K-Means Clustering** (scikit-learn)
@@ -34,7 +34,7 @@ This project uses **K-Means Clustering** (Unsupervised Learning) to segment mall
 
 ---
 
-## 💻 Local Setup
+##  Local Setup
 
 ### 1️⃣ Clone the Repository
 ```bash
@@ -68,7 +68,7 @@ UserSegmentation-ML/
 
 ---
 
-## 📊 Results
+##  Results
 
 - **5 Clusters** successfully identified
 - **Silhouette Score:** 0.55 (High clustering quality)
@@ -79,9 +79,9 @@ UserSegmentation-ML/
 ## 👩‍💻 Contact
 
 **Aliaa Mohamed**  
-📧 Email: aliaamohamed472005@gmail.com  
-💼 LinkedIn: [linkedin.com/in/aliaa-mohamed-abdo](https://linkedin.com/in/aliaa-mohamed-abdo)  
-🐙 GitHub: [github.com/Aliaa-mohamed47](https://github.com/Aliaa-mohamed47)
+ Email: aliaamohamed472005@gmail.com  
+ LinkedIn: [linkedin.com/in/aliaa-mohamed-abdo](https://linkedin.com/in/aliaa-mohamed-abdo)  
+ GitHub: [github.com/Aliaa-mohamed47](https://github.com/Aliaa-mohamed47)
 
 ---
 
